@@ -30,6 +30,7 @@ jobs:
       - name: Run LLM Policy Generation Script
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          TOGETHER_API_KEY: ${{ secrets.TOGETHER_API_KEY }}
         run: |
           echo "🔍 Starting LLM Policy Generation..."
           python3 scripts/llm-integration/policy_generator.py \
