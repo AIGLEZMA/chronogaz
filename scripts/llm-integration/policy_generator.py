@@ -13,7 +13,7 @@ DEEPSEEK_MODEL = "deepseek-chat"
 
 # LLaMA (Together.ai) Configuration
 LLAMA_BASE_URL = "https://api.together.xyz/v1"
-LLAMA_MODEL = "meta-llama/Llama-3.1-70B-Instruct"
+LLAMA_MODEL = "meta-llama/Llama-3.3-70B-Instruct-Turbo"
 
 # General LLM Settings
 LLM_TEMPERATURE = 0.2
