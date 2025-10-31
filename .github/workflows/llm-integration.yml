@@ -1,0 +1,51 @@
+name: LLM Policy Generation
+
+on:
+  push:
+    branches: [ llm-integration ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  generate-policies:
+    runs-on: ubuntu-latest
+    name: Generate Security Policies (LLM)
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install Python Dependencies
+        run: |
+          pip install requests openai nltk rouge-score
+          
+      - name: Run LLM Policy Generation Script
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          echo "🔍 Starting LLM Policy Generation..."
+          python3 scripts/llm-integration/policy_generator.py \
+            --sast-report scripts/llm-integration/test-reports/unified_sast_report.json \
+            --sca-report scripts/llm-integration/test-reports/unified_sca_report.json \
+            --dast-report scripts/llm-integration/test-reports/unified_dast_report.json \
+            --output-dir ./generated-policies/
+          
+          echo "✅ Policy generation complete. Files created:"
+          ls -l ./generated-policies/
+          
+      - name: Upload Generated Policies
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: generated-policies
+          path: ./generated-policies/
+          retention-days: 30
+
