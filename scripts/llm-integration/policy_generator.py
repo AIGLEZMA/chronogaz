@@ -251,7 +251,7 @@ def main():
     
     print("\nExtracting top vulnerabilities...")
     sast_vulns = extract_top_vulnerabilities(sast_data, "SAST")
-    sca__vulns = extract_top_vulnerabilities(sca_data, "SCA")
+    sca_vulns = extract_top_vulnerabilities(sca_data, "SCA")
     dast_vulns = extract_top_vulnerabilities(dast_data, "DAST")
     
     all_top_vulnerabilities = sast_vulns + sca_vulns + dast_vulns
