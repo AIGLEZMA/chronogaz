@@ -13,7 +13,7 @@ DEEPSEEK_MODEL = "deepseek-chat"
 
 # LLaMA (Together.ai) Configuration
 LLAMA_BASE_URL = "https://api.together.xyz/v1"
-LLAMA_MODEL = "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+LLAMA_MODEL = "meta-llama/Llama-3.1-70B-Instruct"
 
 # General LLM Settings
 LLM_TEMPERATURE = 0.2
@@ -76,6 +76,18 @@ def extract_top_vulnerabilities(data: Optional[Dict[str, Any]], source_name: str
         })
     print(f"  ✓ Extracted {len(standardized_vulns)} vulnerabilities from {source_name}.")
     return standardized_vulns
+
+def extract_policy_title(policy_text: str) -> str:
+    """Helper function to extract the title from a generated policy string."""
+    try:
+        for line in policy_text.splitlines():
+            if line.startswith("**Policy Title:**"):
+                # Get text after the markdown, strip whitespace
+                return line.replace("**Policy Title:**", "").strip()
+    except Exception:
+        pass # Fallback on error
+    # Fallback if no title is found or text is malformed
+    return "Untitled Policy"
 
 def generate_policy_for_vulnerability(
     client: OpenAI, 
@@ -149,12 +161,44 @@ def generate_policy_for_vulnerability(
         return None
 
 def save_policy_file(output_dir: str, filename: str, policies: List[str]):
-    """Saves a list of generated policies to a file."""
+    """
+    Saves a list of generated policies to a file,
+    consolidating duplicates and adding notes.
+    """
+    
+    print(f"\n  Consolidating policies for {filename}...")
+    
     if not policies:
          policy_text = f"# Security Policy Report ({filename})\n\nNo policies were generated."
     else:
-        # Join each policy with a horizontal rule for readability
-        policy_text = "\n\n---\n\n".join(policies)
+        # --- DE-DUPLICATION LOGIC ---
+        policy_groups: Dict[str, List[str]] = {}
+        
+        # 1. Group policies by their extracted title
+        for policy in policies:
+            title = extract_policy_title(policy)
+            if title not in policy_groups:
+                policy_groups[title] = []
+            policy_groups[title].append(policy)
+        
+        print(f"  ✓ Found {len(policies)} total policies, consolidated into {len(policy_groups)} unique groups.")
+
+        # 2. Build the final text
+        consolidated_policies = []
+        for title, group in policy_groups.items():
+            # Take the first policy as the canonical one
+            canonical_policy = group[0]
+            count = len(group)
+            
+            if count > 1:
+                # Add the note as requested by the user
+                note = f"\n\n**Consolidation Note:** {count - 1} other similar issue(s) were also detected and are covered by this policy."
+                canonical_policy += note
+                
+            consolidated_policies.append(canonical_policy)
+        
+        # Join each consolidated policy with a horizontal rule
+        policy_text = "\n\n---\n\n".join(consolidated_policies)
 
     output_filename = os.path.join(output_dir, filename)
     
@@ -207,7 +251,7 @@ def main():
     
     print("\nExtracting top vulnerabilities...")
     sast_vulns = extract_top_vulnerabilities(sast_data, "SAST")
-    sca_vulns = extract_top_vulnerabilities(sca_data, "SCA")
+    sca__vulns = extract_top_vulnerabilities(sca_data, "SCA")
     dast_vulns = extract_top_vulnerabilities(dast_data, "DAST")
     
     all_top_vulnerabilities = sast_vulns + sca_vulns + dast_vulns
