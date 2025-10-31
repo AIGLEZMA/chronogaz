@@ -1,0 +1,936 @@
+{
+  "scan_metadata": {
+    "scan_type": "DAST",
+    "tool": "OWASP ZAP",
+    "scan_date": "2025-10-31T01:19:09.737417",
+    "project": "ChronoGaz",
+    "parser_version": "1.0.0"
+  },
+  "summary": {
+    "total_alerts": 20,
+    "total_instances": 45,
+    "urls_tested": 4,
+    "risk_score": 27.0,
+    "severity_distribution": {
+      "medium": 4,
+      "low": 7,
+      "info": 9
+    },
+    "confidence_distribution": {
+      "high": 8,
+      "medium": 9,
+      "low": 3
+    }
+  },
+  "top_vulnerabilities": [
+    {
+      "id": "DAST-0170D169",
+      "source": "DAST",
+      "tool": "OWASP ZAP",
+      "site": "https://chronogaz.mooo.com",
+      "plugin_id": "10055",
+      "alert_ref": "10055-13",
+      "name": "CSP: Failure to Define Directive with No Fallback",
+      "severity": "medium",
+      "confidence": "high",
+      "risk_level": "high",
+      "description": "The Content Security Policy fails to define one of the directives that has no fallback. Missing/excluding them is the same as allowing anything.",
+      "solution": "Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.",
+      "reference": "<p>https://www.w3.org/TR/CSP/</p><p>https://caniuse.com/#search=content+security+policy</p><p>https://content-security-policy.com/</p><p>https://github.com/HtmlUnit/htmlunit-csp</p><p>https://web.dev/articles/csp#resource-options</p>",
+      "cwe": "CWE-693",
+      "wasc": "WASC-15",
+      "instance_count": 2,
+      "affected_urls": [
+        {
+          "url": "https://chronogaz.mooo.com/robots.txt",
+          "method": "GET",
+          "param": "Content-Security-Policy",
+          "evidence": "default-src 'none'"
+        },
+        {
+          "url": "https://chronogaz.mooo.com/sitemap.xml",
+          "method": "GET",
+          "param": "Content-Security-Policy",
+          "evidence": "default-src 'none'"
+        }
+      ],
+      "owasp_category": "A05:2021 - Security Misconfiguration",
+      "nist_csf_function": "PR.DS - Data Security"
+    },
+    {
+      "id": "DAST-88297763",
+      "source": "DAST",
+      "tool": "OWASP ZAP",
+      "site": "https://chronogaz.mooo.com",
+      "plugin_id": "10038",
+      "alert_ref": "10038-1",
+      "name": "Content Security Policy (CSP) Header Not Set",
+      "severity": "medium",
+      "confidence": "high",
+      "risk_level": "high",
+      "description": "Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fo",
+      "solution": "Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.",
+      "reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
+      "cwe": "CWE-693",
+      "wasc": "WASC-15",
+      "instance_count": 1,
+      "affected_urls": [
+        {
+          "url": "https://chronogaz.mooo.com",
+          "method": "GET",
+          "param": "",
+          "evidence": ""
+        }
+      ],
+      "owasp_category": "A05:2021 - Security Misconfiguration",
+      "nist_csf_function": "PR.DS - Data Security"
+    },
+    {
+      "id": "DAST-624A22E8",
+      "source": "DAST",
+      "tool": "OWASP ZAP",
+      "site": "https://chronogaz.mooo.com",
+      "plugin_id": "10098",
+      "alert_ref": "10098",
+      "name": "Cross-Domain Misconfiguration",
+      "severity": "medium",
+      "confidence": "medium",
+      "risk_level": "medium",
+      "description": "Web browser data loading may be possible, due to a Cross Origin Resource Sharing (CORS) misconfiguration on the web server.",
+      "solution": "Ensure that sensitive data is not available in an unauthenticated manner (using IP address white-listing, for instance).Configure the \"Access-Control-Allow-Origin\" HTTP header to a more restrictive set of domains, or remove all CORS headers entirely, to allow the web browser to enforce the Same Origin Policy (SOP) in a more restrictive manner.",
+      "reference": "<p>https://vulncat.fortify.com/en/detail?category=HTML5&subcategory=Overly%20Permissive%20CORS%20Policy</p>",
+      "cwe": "CWE-264",
+      "wasc": "WASC-14",
+      "instance_count": 4,
+      "affected_urls": [
+        {
+          "url": "https://chronogaz.mooo.com",
+          "method": "GET",
+          "param": "",
+          "evidence": "Access-Control-Allow-Origin: *"
+        },
+        {
+          "url": "https://chronogaz.mooo.com/robots.txt",
+          "method": "GET",
+          "param": "",
+          "evidence": "Access-Control-Allow-Origin: *"
+        },
+        {
+          "url": "https://chronogaz.mooo.com/sitemap.xml",
+          "method": "GET",
+          "param": "",
+          "evidence": "Access-Control-Allow-Origin: *"
+        },
+        {
+          "url": "https://chronogaz.mooo.com/static/js/bundle.js",
+          "method": "GET",
+          "param": "",
+          "evidence": "Access-Control-Allow-Origin: *"
+        }
+      ],
+      "owasp_category": "A05:2021 - Security Misconfiguration",
+      "nist_csf_function": "PR.AC - Access Control"
+    },
+    {
+      "id": "DAST-460615CA",
+      "source": "DAST",
+      "tool": "OWASP ZAP",
+      "site": "https://chronogaz.mooo.com",
+      "plugin_id": "10020",
+      "alert_ref": "10020-1",
+      "name": "Missing Anti-clickjacking Header",
+      "severity": "medium",
+      "confidence": "medium",
+      "risk_level": "medium",
+      "description": "The response does not protect against 'ClickJacking' attacks. It should include either Content-Security-Policy with 'frame-ancestors' directive or X-Frame-Options.",
+      "solution": "Modern Web browsers support the Content-Security-Policy and X-Frame-Options HTTP headers. Ensure one of them is set on all web pages returned by your site/app.If you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy's \"frame-ancestors\" directive.",
+      "reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Frame-Options</p>",
+      "cwe": "CWE-1021",
+      "wasc": "WASC-15",
+      "instance_count": 1,
+      "affected_urls": [
+        {
+          "url": "https://chronogaz.mooo.com",
+          "method": "GET",
+          "param": "x-frame-options",
+          "evidence": ""
+        }
+      ],
+      "owasp_category": "A05:2021 - Security Misconfiguration",
+      "nist_csf_function": "PR.DS - Data Security"
+    },
+    {
+      "id": "DAST-19D3E7A9",
+      "source": "DAST",
+      "tool": "OWASP ZAP",
+      "site": "https://chronogaz.mooo.com",
+      "plugin_id": "10063",
+      "alert_ref": "10063-1",
+      "name": "Permissions Policy Header Not Set",
+      "severity": "low",
+      "confidence": "medium",
+      "risk_level": "low",
+      "description": "Permissions Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Permissions Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.",
+      "solution": "Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.",
+      "reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
+      "cwe": "CWE-693",
+      "wasc": "WASC-15",
+      "instance_count": 4,
+      "affected_urls": [
+        {
+          "url": "https://chronogaz.mooo.com",
+          "method": "GET",
+          "param": "",
+          "evidence": ""
+        },
+        {
+          "url": "https://chronogaz.mooo.com/robots.txt",
+          "method": "GET",
+          "param": "",
+          "evidence": ""
+        },
+        {
+          "url": "https://chronogaz.mooo.com/sitemap.xml",
+          "method": "GET",
+          "param": "",
+          "evidence": ""
+        },
+        {
+          "url": "https://chronogaz.mooo.com/static/js/bundle.js",
+          "method": "GET",
+          "param": "",
+          "evidence": ""
+        }
+      ],
+      "owasp_category": "A05:2021 - Security Misconfiguration",
+      "nist_csf_function": "PR.DS - Data Security"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "id": "DAST-0170D169",
+      "source": "DAST",
+      "tool": "OWASP ZAP",
+      "site": "https://chronogaz.mooo.com",
+      "plugin_id": "10055",
+      "alert_ref": "10055-13",
+      "name": "CSP: Failure to Define Directive with No Fallback",
+      "severity": "medium",
+      "confidence": "high",
+      "risk_level": "high",
+      "description": "The Content Security Policy fails to define one of the directives that has no fallback. Missing/excluding them is the same as allowing anything.",
+      "solution": "Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.",
+      "reference": "<p>https://www.w3.org/TR/CSP/</p><p>https://caniuse.com/#search=content+security+policy</p><p>https://content-security-policy.com/</p><p>https://github.com/HtmlUnit/htmlunit-csp</p><p>https://web.dev/articles/csp#resource-options</p>",
+      "cwe": "CWE-693",
+      "wasc": "WASC-15",
+      "instance_count": 2,
+      "affected_urls": [
+        {
+          "url": "https://chronogaz.mooo.com/robots.txt",
+          "method": "GET",
+          "param": "Content-Security-Policy",
+          "evidence": "default-src 'none'"
+        },
+        {
+          "url": "https://chronogaz.mooo.com/sitemap.xml",
+          "method": "GET",
+          "param": "Content-Security-Policy",
+          "evidence": "default-src 'none'"
+        }
+      ],
+      "owasp_category": "A05:2021 - Security Misconfiguration",
+      "nist_csf_function": "PR.DS - Data Security"
+    },
+    {
+      "id": "DAST-88297763",
+      "source": "DAST",
+      "tool": "OWASP ZAP",
+      "site": "https://chronogaz.mooo.com",
+      "plugin_id": "10038",
+      "alert_ref": "10038-1",
+      "name": "Content Security Policy (CSP) Header Not Set",
+      "severity": "medium",
+      "confidence": "high",
+      "risk_level": "high",
+      "description": "Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fo",
+      "solution": "Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.",
+      "reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
+      "cwe": "CWE-693",
+      "wasc": "WASC-15",
+      "instance_count": 1,
+      "affected_urls": [
+        {
+          "url": "https://chronogaz.mooo.com",
+          "method": "GET",
+          "param": "",
+          "evidence": ""
+        }
+      ],
+      "owasp_category": "A05:2021 - Security Misconfiguration",
+      "nist_csf_function": "PR.DS - Data Security"
+    },
+    {
+      "id": "DAST-624A22E8",
+      "source": "DAST",
+      "tool": "OWASP ZAP",
+      "site": "https://chronogaz.mooo.com",
+      "plugin_id": "10098",
+      "alert_ref": "10098",
+      "name": "Cross-Domain Misconfiguration",
+      "severity": "medium",
+      "confidence": "medium",
+      "risk_level": "medium",
+      "description": "Web browser data loading may be possible, due to a Cross Origin Resource Sharing (CORS) misconfiguration on the web server.",
+      "solution": "Ensure that sensitive data is not available in an unauthenticated manner (using IP address white-listing, for instance).Configure the \"Access-Control-Allow-Origin\" HTTP header to a more restrictive set of domains, or remove all CORS headers entirely, to allow the web browser to enforce the Same Origin Policy (SOP) in a more restrictive manner.",
+      "reference": "<p>https://vulncat.fortify.com/en/detail?category=HTML5&subcategory=Overly%20Permissive%20CORS%20Policy</p>",
+      "cwe": "CWE-264",
+      "wasc": "WASC-14",
+      "instance_count": 4,
+      "affected_urls": [
+        {
+          "url": "https://chronogaz.mooo.com",
+          "method": "GET",
+          "param": "",
+          "evidence": "Access-Control-Allow-Origin: *"
+        },
+        {
+          "url": "https://chronogaz.mooo.com/robots.txt",
+          "method": "GET",
+          "param": "",
+          "evidence": "Access-Control-Allow-Origin: *"
+        },
+        {
+          "url": "https://chronogaz.mooo.com/sitemap.xml",
+          "method": "GET",
+          "param": "",
+          "evidence": "Access-Control-Allow-Origin: *"
+        },
+        {
+          "url": "https://chronogaz.mooo.com/static/js/bundle.js",
+          "method": "GET",
+          "param": "",
+          "evidence": "Access-Control-Allow-Origin: *"
+        }
+      ],
+      "owasp_category": "A05:2021 - Security Misconfiguration",
+      "nist_csf_function": "PR.AC - Access Control"
+    },
+    {
+      "id": "DAST-460615CA",
+      "source": "DAST",
+      "tool": "OWASP ZAP",
+      "site": "https://chronogaz.mooo.com",
+      "plugin_id": "10020",
+      "alert_ref": "10020-1",
+      "name": "Missing Anti-clickjacking Header",
+      "severity": "medium",
+      "confidence": "medium",
+      "risk_level": "medium",
+      "description": "The response does not protect against 'ClickJacking' attacks. It should include either Content-Security-Policy with 'frame-ancestors' directive or X-Frame-Options.",
+      "solution": "Modern Web browsers support the Content-Security-Policy and X-Frame-Options HTTP headers. Ensure one of them is set on all web pages returned by your site/app.If you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy's \"frame-ancestors\" directive.",
+      "reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Frame-Options</p>",
+      "cwe": "CWE-1021",
+      "wasc": "WASC-15",
+      "instance_count": 1,
+      "affected_urls": [
+        {
+          "url": "https://chronogaz.mooo.com",
+          "method": "GET",
+          "param": "x-frame-options",
+          "evidence": ""
+        }
+      ],
+      "owasp_category": "A05:2021 - Security Misconfiguration",
+      "nist_csf_function": "PR.DS - Data Security"
+    },
+    {
+      "id": "DAST-DCC1FA3D",
+      "source": "DAST",
+      "tool": "OWASP ZAP",
+      "site": "https://chronogaz.mooo.com",
+      "plugin_id": "90004",
+      "alert_ref": "90004-2",
+      "name": "Insufficient Site Isolation Against Spectre Vulnerability",
+      "severity": "low",
+      "confidence": "medium",
+      "risk_level": "low",
+      "description": "Cross-Origin-Embedder-Policy header is a response header that prevents a document from loading any cross-origin resources that don't explicitly grant the document permission (using CORP or CORS).",
+      "solution": "Ensure that the application/web server sets the Cross-Origin-Embedder-Policy header appropriately, and that it sets the Cross-Origin-Embedder-Policy header to 'require-corp' for documents.If possible, ensure that the end user uses a standards-compliant and modern web browser that supports the Cross-Origin-Embedder-Policy header (https://caniuse.com/mdn-http_headers_cross-origin-embedder-policy).",
+      "reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy</p>",
+      "cwe": "CWE-693",
+      "wasc": "WASC-14",
+      "instance_count": 2,
+      "affected_urls": [
+        {
+          "url": "https://chronogaz.mooo.com",
+          "method": "GET",
+          "param": "Cross-Origin-Embedder-Policy",
+          "evidence": ""
+        },
+        {
+          "url": "https://chronogaz.mooo.com",
+          "method": "GET",
+          "param": "Cross-Origin-Opener-Policy",
+          "evidence": ""
+        }
+      ],
+      "owasp_category": "A05:2021 - Security Misconfiguration",
+      "nist_csf_function": "PR.IP - Information Protection Processes"
+    },
+    {
+      "id": "DAST-19D3E7A9",
+      "source": "DAST",
+      "tool": "OWASP ZAP",
+      "site": "https://chronogaz.mooo.com",
+      "plugin_id": "10063",
+      "alert_ref": "10063-1",
+      "name": "Permissions Policy Header Not Set",
+      "severity": "low",
+      "confidence": "medium",
+      "risk_level": "low",
+      "description": "Permissions Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Permissions Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.",
+      "solution": "Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.",
+      "reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
+      "cwe": "CWE-693",
+      "wasc": "WASC-15",
+      "instance_count": 4,
+      "affected_urls": [
+        {
+          "url": "https://chronogaz.mooo.com",
+          "method": "GET",
+          "param": "",
+          "evidence": ""
+        },
+        {
+          "url": "https://chronogaz.mooo.com/robots.txt",
+          "method": "GET",
+          "param": "",
+          "evidence": ""
+        },
+        {
+          "url": "https://chronogaz.mooo.com/sitemap.xml",
+          "method": "GET",
+          "param": "",
+          "evidence": ""
+        },
+        {
+          "url": "https://chronogaz.mooo.com/static/js/bundle.js",
+          "method": "GET",
+          "param": "",
+          "evidence": ""
+        }
+      ],
+      "owasp_category": "A05:2021 - Security Misconfiguration",
+      "nist_csf_function": "PR.DS - Data Security"
+    },
+    {
+      "id": "DAST-533F3083",
+      "source": "DAST",
+      "tool": "OWASP ZAP",
+      "site": "https://chronogaz.mooo.com",
+      "plugin_id": "10037",
+      "alert_ref": "10037",
+      "name": "Server Leaks Information via \"X-Powered-By\" HTTP Response Header Field(s)",
+      "severity": "low",
+      "confidence": "medium",
+      "risk_level": "low",
+      "description": "The web/application server is leaking information via one or more \"X-Powered-By\" HTTP response headers. Access to such information may facilitate attackers identifying other frameworks/components your web application is reliant upon and the vulnerabilities such components may be subject to.",
+      "solution": "Ensure that your web server, application server, load balancer, etc. is configured to suppress \"X-Powered-By\" headers.",
+      "reference": "<p>https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/01-Information_Gathering/08-Fingerprint_Web_Application_Framework</p><p>https://www.troyhunt.com/shhh-dont-let-your-response-headers/</p>",
+      "cwe": "CWE-497",
+      "wasc": "WASC-13",
+      "instance_count": 4,
+      "affected_urls": [
+        {
+          "url": "https://chronogaz.mooo.com",
+          "method": "GET",
+          "param": "",
+          "evidence": "X-Powered-By: Express"
+        },
+        {
+          "url": "https://chronogaz.mooo.com/robots.txt",
+          "method": "GET",
+          "param": "",
+          "evidence": "X-Powered-By: Express"
+        },
+        {
+          "url": "https://chronogaz.mooo.com/sitemap.xml",
+          "method": "GET",
+          "param": "",
+          "evidence": "X-Powered-By: Express"
+        },
+        {
+          "url": "https://chronogaz.mooo.com/static/js/bundle.js",
+          "method": "GET",
+          "param": "",
+          "evidence": "X-Powered-By: Express"
+        }
+      ],
+      "owasp_category": "A05:2021 - Security Misconfiguration",
+      "nist_csf_function": "PR.DS - Data Security"
+    },
+    {
+      "id": "DAST-8C50D4DF",
+      "source": "DAST",
+      "tool": "OWASP ZAP",
+      "site": "https://chronogaz.mooo.com",
+      "plugin_id": "10036",
+      "alert_ref": "10036-2",
+      "name": "Server Leaks Version Information via \"Server\" HTTP Response Header Field",
+      "severity": "low",
+      "confidence": "high",
+      "risk_level": "low",
+      "description": "The web/application server is leaking version information via the \"Server\" HTTP response header. Access to such information may facilitate attackers identifying other vulnerabilities your web/application server is subject to.",
+      "solution": "Ensure that your web server, application server, load balancer, etc. is configured to suppress the \"Server\" header or provide generic details.",
+      "reference": "<p>https://httpd.apache.org/docs/current/mod/core.html#servertokens</p><p>https://learn.microsoft.com/en-us/previous-versions/msp-n-p/ff648552(v=pandp.10)</p><p>https://www.troyhunt.com/shhh-dont-let-your-response-headers/</p>",
+      "cwe": "CWE-497",
+      "wasc": "WASC-13",
+      "instance_count": 4,
+      "affected_urls": [
+        {
+          "url": "https://chronogaz.mooo.com",
+          "method": "GET",
+          "param": "",
+          "evidence": "nginx/1.29.1"
+        },
+        {
+          "url": "https://chronogaz.mooo.com/robots.txt",
+          "method": "GET",
+          "param": "",
+          "evidence": "nginx/1.29.1"
+        },
+        {
+          "url": "https://chronogaz.mooo.com/sitemap.xml",
+          "method": "GET",
+          "param": "",
+          "evidence": "nginx/1.29.1"
+        },
+        {
+          "url": "https://chronogaz.mooo.com/static/js/bundle.js",
+          "method": "GET",
+          "param": "",
+          "evidence": "nginx/1.29.1"
+        }
+      ],
+      "owasp_category": "A05:2021 - Security Misconfiguration",
+      "nist_csf_function": "PR.DS - Data Security"
+    },
+    {
+      "id": "DAST-A658C78B",
+      "source": "DAST",
+      "tool": "OWASP ZAP",
+      "site": "https://chronogaz.mooo.com",
+      "plugin_id": "10035",
+      "alert_ref": "10035-1",
+      "name": "Strict-Transport-Security Header Not Set",
+      "severity": "low",
+      "confidence": "high",
+      "risk_level": "low",
+      "description": "HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.",
+      "solution": "Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.",
+      "reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>https://caniuse.com/stricttransportsecurity</p><p>https://datatracker.ietf.org/doc/html/rfc6797</p>",
+      "cwe": "CWE-319",
+      "wasc": "WASC-15",
+      "instance_count": 4,
+      "affected_urls": [
+        {
+          "url": "https://chronogaz.mooo.com",
+          "method": "GET",
+          "param": "",
+          "evidence": ""
+        },
+        {
+          "url": "https://chronogaz.mooo.com/robots.txt",
+          "method": "GET",
+          "param": "",
+          "evidence": ""
+        },
+        {
+          "url": "https://chronogaz.mooo.com/sitemap.xml",
+          "method": "GET",
+          "param": "",
+          "evidence": ""
+        },
+        {
+          "url": "https://chronogaz.mooo.com/static/js/bundle.js",
+          "method": "GET",
+          "param": "",
+          "evidence": ""
+        }
+      ],
+      "owasp_category": "A02:2021 - Cryptographic Failures",
+      "nist_csf_function": "PR.DS - Data Security"
+    },
+    {
+      "id": "DAST-600A2465",
+      "source": "DAST",
+      "tool": "OWASP ZAP",
+      "site": "https://chronogaz.mooo.com",
+      "plugin_id": "10096",
+      "alert_ref": "10096",
+      "name": "Timestamp Disclosure - Unix",
+      "severity": "low",
+      "confidence": "low",
+      "risk_level": "low",
+      "description": "A timestamp was disclosed by the application/web server. - Unix",
+      "solution": "Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.",
+      "reference": "<p>https://cwe.mitre.org/data/definitions/200.html</p>",
+      "cwe": "CWE-497",
+      "wasc": "WASC-13",
+      "instance_count": 1,
+      "affected_urls": [
+        {
+          "url": "https://chronogaz.mooo.com/static/js/bundle.js",
+          "method": "GET",
+          "param": "",
+          "evidence": "1836589329"
+        }
+      ],
+      "owasp_category": "A05:2021 - Security Misconfiguration",
+      "nist_csf_function": "PR.DS - Data Security"
+    },
+    {
+      "id": "DAST-511FCD38",
+      "source": "DAST",
+      "tool": "OWASP ZAP",
+      "site": "https://chronogaz.mooo.com",
+      "plugin_id": "10021",
+      "alert_ref": "10021",
+      "name": "X-Content-Type-Options Header Missing",
+      "severity": "low",
+      "confidence": "medium",
+      "risk_level": "low",
+      "description": "The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.",
+      "solution": "Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.",
+      "reference": "<p>https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</p><p>https://owasp.org/www-community/Security_Headers</p>",
+      "cwe": "CWE-693",
+      "wasc": "WASC-15",
+      "instance_count": 2,
+      "affected_urls": [
+        {
+          "url": "https://chronogaz.mooo.com",
+          "method": "GET",
+          "param": "x-content-type-options",
+          "evidence": ""
+        },
+        {
+          "url": "https://chronogaz.mooo.com/static/js/bundle.js",
+          "method": "GET",
+          "param": "x-content-type-options",
+          "evidence": ""
+        }
+      ],
+      "owasp_category": "A05:2021 - Security Misconfiguration",
+      "nist_csf_function": "PR.DS - Data Security"
+    },
+    {
+      "id": "DAST-31DCF035",
+      "source": "DAST",
+      "tool": "OWASP ZAP",
+      "site": "https://chronogaz.mooo.com",
+      "plugin_id": "10094",
+      "alert_ref": "10094-3",
+      "name": "Base64 Disclosure",
+      "severity": "info",
+      "confidence": "medium",
+      "risk_level": "low",
+      "description": "Base64 encoded data was disclosed by the application/web server. Note: in the interests of performance not all base64 strings in the response were analyzed individually, the entire response should be looked at by the analyst/security team/developer(s).",
+      "solution": "Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.",
+      "reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
+      "cwe": "CWE-319",
+      "wasc": "WASC-13",
+      "instance_count": 1,
+      "affected_urls": [
+        {
+          "url": "https://chronogaz.mooo.com/static/js/bundle.js",
+          "method": "GET",
+          "param": "",
+          "evidence": "com/webpack/webpack/blob/b93048643fe74de2a6931755911da1212df55897/lib/MainTemplate"
+        }
+      ],
+      "owasp_category": "A02:2021 - Cryptographic Failures",
+      "nist_csf_function": "PR.DS - Data Security"
+    },
+    {
+      "id": "DAST-C0EB4B49",
+      "source": "DAST",
+      "tool": "OWASP ZAP",
+      "site": "https://chronogaz.mooo.com",
+      "plugin_id": "10027",
+      "alert_ref": "10027",
+      "name": "Information Disclosure - Suspicious Comments",
+      "severity": "info",
+      "confidence": "low",
+      "risk_level": "low",
+      "description": "The response appears to contain suspicious comments which may help an attacker.",
+      "solution": "Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.",
+      "reference": "",
+      "cwe": "CWE-615",
+      "wasc": "WASC-13",
+      "instance_count": 1,
+      "affected_urls": [
+        {
+          "url": "https://chronogaz.mooo.com/static/js/bundle.js",
+          "method": "GET",
+          "param": "",
+          "evidence": "user"
+        }
+      ],
+      "owasp_category": "A05:2021 - Security Misconfiguration",
+      "nist_csf_function": "PR.DS - Data Security"
+    },
+    {
+      "id": "DAST-F4A02D37",
+      "source": "DAST",
+      "tool": "OWASP ZAP",
+      "site": "https://chronogaz.mooo.com",
+      "plugin_id": "10109",
+      "alert_ref": "10109",
+      "name": "Modern Web Application",
+      "severity": "info",
+      "confidence": "medium",
+      "risk_level": "low",
+      "description": "The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.",
+      "solution": "This is an informational alert and so no changes are required.",
+      "reference": "",
+      "cwe": "CWE--1",
+      "wasc": "WASC--1",
+      "instance_count": 1,
+      "affected_urls": [
+        {
+          "url": "https://chronogaz.mooo.com",
+          "method": "GET",
+          "param": "",
+          "evidence": "<script defer src=\"/static/js/bundle.js\"></script>"
+        }
+      ],
+      "owasp_category": "A05:2021 - Security Misconfiguration",
+      "nist_csf_function": "PR.IP - Information Protection Processes"
+    },
+    {
+      "id": "DAST-D17E25B4",
+      "source": "DAST",
+      "tool": "OWASP ZAP",
+      "site": "https://chronogaz.mooo.com",
+      "plugin_id": "10015",
+      "alert_ref": "10015",
+      "name": "Re-examine Cache-control Directives",
+      "severity": "info",
+      "confidence": "low",
+      "risk_level": "low",
+      "description": "The cache-control header has not been set properly or is missing, allowing the browser and proxies to cache content. For static assets like css, js, or image files this might be intended, however, the resources should be reviewed to ensure that no sensitive content will be cached.",
+      "solution": "For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".",
+      "reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
+      "cwe": "CWE-525",
+      "wasc": "WASC-13",
+      "instance_count": 1,
+      "affected_urls": [
+        {
+          "url": "https://chronogaz.mooo.com",
+          "method": "GET",
+          "param": "cache-control",
+          "evidence": ""
+        }
+      ],
+      "owasp_category": "A05:2021 - Security Misconfiguration",
+      "nist_csf_function": "PR.IP - Information Protection Processes"
+    },
+    {
+      "id": "DAST-61DF91F9",
+      "source": "DAST",
+      "tool": "OWASP ZAP",
+      "site": "https://chronogaz.mooo.com",
+      "plugin_id": "90005",
+      "alert_ref": "90005-3",
+      "name": "Sec-Fetch-Dest Header is Missing",
+      "severity": "info",
+      "confidence": "high",
+      "risk_level": "low",
+      "description": "Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.",
+      "solution": "Ensure that Sec-Fetch-Dest header is included in request headers.",
+      "reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Sec-Fetch-Dest</p>",
+      "cwe": "CWE-352",
+      "wasc": "WASC-9",
+      "instance_count": 2,
+      "affected_urls": [
+        {
+          "url": "https://chronogaz.mooo.com",
+          "method": "GET",
+          "param": "Sec-Fetch-Dest",
+          "evidence": ""
+        },
+        {
+          "url": "https://chronogaz.mooo.com/sitemap.xml",
+          "method": "GET",
+          "param": "Sec-Fetch-Dest",
+          "evidence": ""
+        }
+      ],
+      "owasp_category": "A01:2021 - Broken Access Control (CSRF)",
+      "nist_csf_function": "PR.DS - Data Security"
+    },
+    {
+      "id": "DAST-AA42909C",
+      "source": "DAST",
+      "tool": "OWASP ZAP",
+      "site": "https://chronogaz.mooo.com",
+      "plugin_id": "90005",
+      "alert_ref": "90005-2",
+      "name": "Sec-Fetch-Mode Header is Missing",
+      "severity": "info",
+      "confidence": "high",
+      "risk_level": "low",
+      "description": "Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.",
+      "solution": "Ensure that Sec-Fetch-Mode header is included in request headers.",
+      "reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Sec-Fetch-Mode</p>",
+      "cwe": "CWE-352",
+      "wasc": "WASC-9",
+      "instance_count": 2,
+      "affected_urls": [
+        {
+          "url": "https://chronogaz.mooo.com",
+          "method": "GET",
+          "param": "Sec-Fetch-Mode",
+          "evidence": ""
+        },
+        {
+          "url": "https://chronogaz.mooo.com/sitemap.xml",
+          "method": "GET",
+          "param": "Sec-Fetch-Mode",
+          "evidence": ""
+        }
+      ],
+      "owasp_category": "A01:2021 - Broken Access Control (CSRF)",
+      "nist_csf_function": "PR.DS - Data Security"
+    },
+    {
+      "id": "DAST-7E33F55E",
+      "source": "DAST",
+      "tool": "OWASP ZAP",
+      "site": "https://chronogaz.mooo.com",
+      "plugin_id": "90005",
+      "alert_ref": "90005-1",
+      "name": "Sec-Fetch-Site Header is Missing",
+      "severity": "info",
+      "confidence": "high",
+      "risk_level": "low",
+      "description": "Specifies the relationship between request initiator's origin and target's origin.",
+      "solution": "Ensure that Sec-Fetch-Site header is included in request headers.",
+      "reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Sec-Fetch-Site</p>",
+      "cwe": "CWE-352",
+      "wasc": "WASC-9",
+      "instance_count": 2,
+      "affected_urls": [
+        {
+          "url": "https://chronogaz.mooo.com",
+          "method": "GET",
+          "param": "Sec-Fetch-Site",
+          "evidence": ""
+        },
+        {
+          "url": "https://chronogaz.mooo.com/sitemap.xml",
+          "method": "GET",
+          "param": "Sec-Fetch-Site",
+          "evidence": ""
+        }
+      ],
+      "owasp_category": "A01:2021 - Broken Access Control (CSRF)",
+      "nist_csf_function": "PR.DS - Data Security"
+    },
+    {
+      "id": "DAST-ED629386",
+      "source": "DAST",
+      "tool": "OWASP ZAP",
+      "site": "https://chronogaz.mooo.com",
+      "plugin_id": "90005",
+      "alert_ref": "90005-4",
+      "name": "Sec-Fetch-User Header is Missing",
+      "severity": "info",
+      "confidence": "high",
+      "risk_level": "low",
+      "description": "Specifies if a navigation request was initiated by a user.",
+      "solution": "Ensure that Sec-Fetch-User header is included in user initiated requests.",
+      "reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Sec-Fetch-User</p>",
+      "cwe": "CWE-352",
+      "wasc": "WASC-9",
+      "instance_count": 2,
+      "affected_urls": [
+        {
+          "url": "https://chronogaz.mooo.com",
+          "method": "GET",
+          "param": "Sec-Fetch-User",
+          "evidence": ""
+        },
+        {
+          "url": "https://chronogaz.mooo.com/sitemap.xml",
+          "method": "GET",
+          "param": "Sec-Fetch-User",
+          "evidence": ""
+        }
+      ],
+      "owasp_category": "A01:2021 - Broken Access Control (CSRF)",
+      "nist_csf_function": "PR.DS - Data Security"
+    },
+    {
+      "id": "DAST-1A172D8D",
+      "source": "DAST",
+      "tool": "OWASP ZAP",
+      "site": "https://chronogaz.mooo.com",
+      "plugin_id": "10049",
+      "alert_ref": "10049-3",
+      "name": "Storable and Cacheable Content",
+      "severity": "info",
+      "confidence": "medium",
+      "risk_level": "low",
+      "description": "The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users. If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching",
+      "solution": "Validate that the response does not contain sensitive, personal or user-specific information. If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:Cache-Control: no-cache, no-store, must-revalidate, privatePragma: no-cacheExpires: 0This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) ",
+      "reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
+      "cwe": "CWE-524",
+      "wasc": "WASC-13",
+      "instance_count": 4,
+      "affected_urls": [
+        {
+          "url": "https://chronogaz.mooo.com",
+          "method": "GET",
+          "param": "",
+          "evidence": ""
+        },
+        {
+          "url": "https://chronogaz.mooo.com/robots.txt",
+          "method": "GET",
+          "param": "",
+          "evidence": ""
+        },
+        {
+          "url": "https://chronogaz.mooo.com/sitemap.xml",
+          "method": "GET",
+          "param": "",
+          "evidence": ""
+        },
+        {
+          "url": "https://chronogaz.mooo.com/static/js/bundle.js",
+          "method": "GET",
+          "param": "",
+          "evidence": ""
+        }
+      ],
+      "owasp_category": "A05:2021 - Security Misconfiguration",
+      "nist_csf_function": "PR.IP - Information Protection Processes"
+    }
+  ],
+  "statistics": {
+    "by_category": {
+      "Content Security Policy": 2,
+      "CORS Misconfiguration": 1,
+      "Missing Security Headers": 10,
+      "Other": 4,
+      "Information Disclosure": 3
+    },
+    "urls_tested": [
+      "https://chronogaz.mooo.com/sitemap.xml",
+      "https://chronogaz.mooo.com",
+      "https://chronogaz.mooo.com/robots.txt",
+      "https://chronogaz.mooo.com/static/js/bundle.js"
+    ]
+  }
+}

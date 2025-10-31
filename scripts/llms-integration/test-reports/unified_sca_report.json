@@ -1,0 +1,1443 @@
+{
+  "scan_metadata": {
+    "scan_type": "SCA",
+    "tool": "NPM Audit",
+    "scan_date": "2025-10-31T01:15:37.553952",
+    "project": "ChronoGaz",
+    "parser_version": "1.0.0"
+  },
+  "summary": {
+    "total_packages": 2169,
+    "vulnerable_packages": 23,
+    "total_vulnerabilities": 23,
+    "risk_score": 66.96,
+    "severity_distribution": {
+      "high": 16,
+      "medium": 4,
+      "low": 3
+    },
+    "component_distribution": {
+      "client": 13,
+      "api": 10
+    }
+  },
+  "top_vulnerabilities": [
+    {
+      "id": "SCA-AE47E032",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "api",
+      "variant": "vulnerable",
+      "package": "jsonwebtoken",
+      "severity": "high",
+      "risk_level": "high",
+      "is_direct": true,
+      "affected_range": "<=8.5.1",
+      "advisories": [
+        {
+          "id": 1097690,
+          "title": "jsonwebtoken unrestricted key type could lead to legacy keys usage ",
+          "url": "https://github.com/advisories/GHSA-8cf7-32gw-wr33",
+          "cwe": [
+            "CWE-327"
+          ],
+          "cvss": {
+            "score": 8.1,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N"
+          }
+        },
+        {
+          "id": 1097694,
+          "title": "jsonwebtoken's insecure implementation of key retrieval function could lead to Forgeable Public/Private Tokens from RSA to HMAC",
+          "url": "https://github.com/advisories/GHSA-hjrf-2m68-5959",
+          "cwe": [
+            "CWE-287",
+            "CWE-1259"
+          ],
+          "cvss": {
+            "score": 5,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:L"
+          }
+        },
+        {
+          "id": 1102458,
+          "title": "jsonwebtoken vulnerable to signature validation bypass due to insecure default algorithm in jwt.verify()",
+          "url": "https://github.com/advisories/GHSA-qwph-4952-7xr6",
+          "cwe": [
+            "CWE-287",
+            "CWE-327",
+            "CWE-347"
+          ],
+          "cvss": {
+            "score": 6.4,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:H/A:L"
+          }
+        }
+      ],
+      "cwe": [
+        "CWE-347",
+        "CWE-1259",
+        "CWE-327",
+        "CWE-287"
+      ],
+      "cvss_scores": [
+        8.1,
+        5,
+        6.4
+      ],
+      "max_cvss": 8.1,
+      "effects": [],
+      "fix_available": true,
+      "fix_info": {
+        "package": "jsonwebtoken",
+        "version": "9.0.2",
+        "is_breaking": true
+      },
+      "owasp_category": "A02:2021 - Cryptographic Failures",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    },
+    {
+      "id": "SCA-FC1E6BD8",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "client",
+      "variant": "production",
+      "package": "axios",
+      "severity": "high",
+      "risk_level": "high",
+      "is_direct": true,
+      "affected_range": "1.0.0 - 1.11.0",
+      "advisories": [
+        {
+          "id": 1108263,
+          "title": "Axios is vulnerable to DoS attack through lack of data size check",
+          "url": "https://github.com/advisories/GHSA-4hjh-wcwx-xvwj",
+          "cwe": [
+            "CWE-770"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          }
+        }
+      ],
+      "cwe": [
+        "CWE-770"
+      ],
+      "cvss_scores": [
+        7.5
+      ],
+      "max_cvss": 7.5,
+      "effects": [],
+      "fix_available": true,
+      "fix_info": null,
+      "owasp_category": "A04:2021 - Insecure Design",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    },
+    {
+      "id": "SCA-7F116269",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "client",
+      "variant": "production",
+      "package": "nth-check",
+      "severity": "high",
+      "risk_level": "high",
+      "is_direct": false,
+      "affected_range": "<2.0.1",
+      "advisories": [
+        {
+          "id": 1095141,
+          "title": "Inefficient Regular Expression Complexity in nth-check",
+          "url": "https://github.com/advisories/GHSA-rp65-9cf3-cjxr",
+          "cwe": [
+            "CWE-1333"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          }
+        }
+      ],
+      "cwe": [
+        "CWE-1333"
+      ],
+      "cvss_scores": [
+        7.5
+      ],
+      "max_cvss": 7.5,
+      "effects": [
+        "css-select"
+      ],
+      "fix_available": true,
+      "fix_info": {
+        "package": "react-scripts",
+        "version": "0.0.0",
+        "is_breaking": true
+      },
+      "owasp_category": "A06:2021 - Vulnerable Components (ReDoS)",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    },
+    {
+      "id": "SCA-B3DCC53F",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "client",
+      "variant": "vulnerable",
+      "package": "axios",
+      "severity": "high",
+      "risk_level": "high",
+      "is_direct": true,
+      "affected_range": "<=0.30.1",
+      "advisories": [
+        {
+          "id": 1097679,
+          "title": "Axios Cross-Site Request Forgery Vulnerability",
+          "url": "https://github.com/advisories/GHSA-wf5p-g6vw-rhxx",
+          "cwe": [
+            "CWE-352"
+          ],
+          "cvss": {
+            "score": 6.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N"
+          }
+        },
+        {
+          "id": 1102326,
+          "title": "axios Inefficient Regular Expression Complexity vulnerability",
+          "url": "https://github.com/advisories/GHSA-cph5-m8f7-6c5x",
+          "cwe": [
+            "CWE-400",
+            "CWE-1333"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          }
+        },
+        {
+          "id": 1103617,
+          "title": "axios Requests Vulnerable To Possible SSRF and Credential Leakage via Absolute URL",
+          "url": "https://github.com/advisories/GHSA-jr5f-v2jv-69x6",
+          "cwe": [
+            "CWE-918"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          }
+        },
+        {
+          "id": 1108262,
+          "title": "Axios is vulnerable to DoS attack through lack of data size check",
+          "url": "https://github.com/advisories/GHSA-4hjh-wcwx-xvwj",
+          "cwe": [
+            "CWE-770"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          }
+        }
+      ],
+      "cwe": [
+        "CWE-352",
+        "CWE-1333",
+        "CWE-918",
+        "CWE-400",
+        "CWE-770"
+      ],
+      "cvss_scores": [
+        6.5,
+        7.5,
+        7.5
+      ],
+      "max_cvss": 7.5,
+      "effects": [],
+      "fix_available": true,
+      "fix_info": {
+        "package": "axios",
+        "version": "0.21.4",
+        "is_breaking": false
+      },
+      "owasp_category": "A01:2021 - Broken Access Control (CSRF)",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    },
+    {
+      "id": "SCA-59B2950A",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "client",
+      "variant": "vulnerable",
+      "package": "moment",
+      "severity": "high",
+      "risk_level": "high",
+      "is_direct": true,
+      "affected_range": "<=2.29.3",
+      "advisories": [
+        {
+          "id": 1095072,
+          "title": "Moment.js vulnerable to Inefficient Regular Expression Complexity",
+          "url": "https://github.com/advisories/GHSA-wc69-rhjr-hc9g",
+          "cwe": [
+            "CWE-400",
+            "CWE-1333"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          }
+        },
+        {
+          "id": 1095083,
+          "title": "Path Traversal: 'dir/../../filename' in moment.locale",
+          "url": "https://github.com/advisories/GHSA-8hfj-j24r-96c4",
+          "cwe": [
+            "CWE-22",
+            "CWE-27"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+          }
+        }
+      ],
+      "cwe": [
+        "CWE-1333",
+        "CWE-22",
+        "CWE-27",
+        "CWE-400"
+      ],
+      "cvss_scores": [
+        7.5,
+        7.5
+      ],
+      "max_cvss": 7.5,
+      "effects": [],
+      "fix_available": true,
+      "fix_info": {
+        "package": "moment",
+        "version": "2.30.1",
+        "is_breaking": false
+      },
+      "owasp_category": "A06:2021 - Vulnerable Components",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "id": "SCA-8C144325",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "client",
+      "variant": "production",
+      "package": "@svgr/plugin-svgo",
+      "severity": "high",
+      "risk_level": "high",
+      "is_direct": false,
+      "affected_range": "<=5.5.0",
+      "advisories": [],
+      "cwe": [],
+      "cvss_scores": [],
+      "max_cvss": 0,
+      "effects": [
+        "@svgr/webpack"
+      ],
+      "fix_available": true,
+      "fix_info": {
+        "package": "react-scripts",
+        "version": "0.0.0",
+        "is_breaking": true
+      },
+      "owasp_category": "A06:2021 - Vulnerable and Outdated Components",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    },
+    {
+      "id": "SCA-2EE3CB02",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "client",
+      "variant": "production",
+      "package": "@svgr/webpack",
+      "severity": "high",
+      "risk_level": "high",
+      "is_direct": false,
+      "affected_range": "4.0.0 - 5.5.0",
+      "advisories": [],
+      "cwe": [],
+      "cvss_scores": [],
+      "max_cvss": 0,
+      "effects": [
+        "react-scripts"
+      ],
+      "fix_available": true,
+      "fix_info": {
+        "package": "react-scripts",
+        "version": "0.0.0",
+        "is_breaking": true
+      },
+      "owasp_category": "A06:2021 - Vulnerable and Outdated Components",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    },
+    {
+      "id": "SCA-FC1E6BD8",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "client",
+      "variant": "production",
+      "package": "axios",
+      "severity": "high",
+      "risk_level": "high",
+      "is_direct": true,
+      "affected_range": "1.0.0 - 1.11.0",
+      "advisories": [
+        {
+          "id": 1108263,
+          "title": "Axios is vulnerable to DoS attack through lack of data size check",
+          "url": "https://github.com/advisories/GHSA-4hjh-wcwx-xvwj",
+          "cwe": [
+            "CWE-770"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          }
+        }
+      ],
+      "cwe": [
+        "CWE-770"
+      ],
+      "cvss_scores": [
+        7.5
+      ],
+      "max_cvss": 7.5,
+      "effects": [],
+      "fix_available": true,
+      "fix_info": null,
+      "owasp_category": "A04:2021 - Insecure Design",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    },
+    {
+      "id": "SCA-2E8BF9AA",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "client",
+      "variant": "production",
+      "package": "css-select",
+      "severity": "high",
+      "risk_level": "high",
+      "is_direct": false,
+      "affected_range": "<=3.1.0",
+      "advisories": [],
+      "cwe": [],
+      "cvss_scores": [],
+      "max_cvss": 0,
+      "effects": [
+        "svgo"
+      ],
+      "fix_available": true,
+      "fix_info": {
+        "package": "react-scripts",
+        "version": "0.0.0",
+        "is_breaking": true
+      },
+      "owasp_category": "A06:2021 - Vulnerable and Outdated Components",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    },
+    {
+      "id": "SCA-7F116269",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "client",
+      "variant": "production",
+      "package": "nth-check",
+      "severity": "high",
+      "risk_level": "high",
+      "is_direct": false,
+      "affected_range": "<2.0.1",
+      "advisories": [
+        {
+          "id": 1095141,
+          "title": "Inefficient Regular Expression Complexity in nth-check",
+          "url": "https://github.com/advisories/GHSA-rp65-9cf3-cjxr",
+          "cwe": [
+            "CWE-1333"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          }
+        }
+      ],
+      "cwe": [
+        "CWE-1333"
+      ],
+      "cvss_scores": [
+        7.5
+      ],
+      "max_cvss": 7.5,
+      "effects": [
+        "css-select"
+      ],
+      "fix_available": true,
+      "fix_info": {
+        "package": "react-scripts",
+        "version": "0.0.0",
+        "is_breaking": true
+      },
+      "owasp_category": "A06:2021 - Vulnerable Components (ReDoS)",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    },
+    {
+      "id": "SCA-4B680D18",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "client",
+      "variant": "production",
+      "package": "postcss",
+      "severity": "medium",
+      "risk_level": "medium",
+      "is_direct": false,
+      "affected_range": "<8.4.31",
+      "advisories": [
+        {
+          "id": 1094544,
+          "title": "PostCSS line return parsing error",
+          "url": "https://github.com/advisories/GHSA-7fh5-64p2-3v2j",
+          "cwe": [
+            "CWE-74",
+            "CWE-144"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+          }
+        }
+      ],
+      "cwe": [
+        "CWE-144",
+        "CWE-74"
+      ],
+      "cvss_scores": [
+        5.3
+      ],
+      "max_cvss": 5.3,
+      "effects": [
+        "resolve-url-loader"
+      ],
+      "fix_available": true,
+      "fix_info": {
+        "package": "react-scripts",
+        "version": "0.0.0",
+        "is_breaking": true
+      },
+      "owasp_category": "A03:2021 - Injection",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    },
+    {
+      "id": "SCA-9FB542F6",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "client",
+      "variant": "production",
+      "package": "react-scripts",
+      "severity": "high",
+      "risk_level": "high",
+      "is_direct": true,
+      "affected_range": ">=0.1.0",
+      "advisories": [],
+      "cwe": [],
+      "cvss_scores": [],
+      "max_cvss": 0,
+      "effects": [],
+      "fix_available": true,
+      "fix_info": {
+        "package": "react-scripts",
+        "version": "0.0.0",
+        "is_breaking": true
+      },
+      "owasp_category": "A06:2021 - Vulnerable and Outdated Components",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    },
+    {
+      "id": "SCA-99407277",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "client",
+      "variant": "production",
+      "package": "resolve-url-loader",
+      "severity": "medium",
+      "risk_level": "medium",
+      "is_direct": false,
+      "affected_range": "0.0.1-experiment-postcss || 3.0.0-alpha.1 - 4.0.0",
+      "advisories": [],
+      "cwe": [],
+      "cvss_scores": [],
+      "max_cvss": 0,
+      "effects": [
+        "react-scripts"
+      ],
+      "fix_available": true,
+      "fix_info": {
+        "package": "react-scripts",
+        "version": "0.0.0",
+        "is_breaking": true
+      },
+      "owasp_category": "A06:2021 - Vulnerable and Outdated Components",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    },
+    {
+      "id": "SCA-CFF94E57",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "client",
+      "variant": "production",
+      "package": "svgo",
+      "severity": "high",
+      "risk_level": "high",
+      "is_direct": false,
+      "affected_range": "1.0.0 - 1.3.2",
+      "advisories": [],
+      "cwe": [],
+      "cvss_scores": [],
+      "max_cvss": 0,
+      "effects": [
+        "@svgr/plugin-svgo"
+      ],
+      "fix_available": true,
+      "fix_info": {
+        "package": "react-scripts",
+        "version": "0.0.0",
+        "is_breaking": true
+      },
+      "owasp_category": "A06:2021 - Vulnerable and Outdated Components",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    },
+    {
+      "id": "SCA-CF182D89",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "client",
+      "variant": "production",
+      "package": "webpack-dev-server",
+      "severity": "medium",
+      "risk_level": "medium",
+      "is_direct": false,
+      "affected_range": "<=5.2.0",
+      "advisories": [
+        {
+          "id": 1108429,
+          "title": "webpack-dev-server users' source code may be stolen when they access a malicious web site with non-Chromium based browser",
+          "url": "https://github.com/advisories/GHSA-9jgg-88mc-972h",
+          "cwe": [
+            "CWE-346"
+          ],
+          "cvss": {
+            "score": 6.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N"
+          }
+        },
+        {
+          "id": 1108430,
+          "title": "webpack-dev-server users' source code may be stolen when they access a malicious web site",
+          "url": "https://github.com/advisories/GHSA-4v9v-hfq4-rm2v",
+          "cwe": [
+            "CWE-749"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N"
+          }
+        }
+      ],
+      "cwe": [
+        "CWE-346",
+        "CWE-749"
+      ],
+      "cvss_scores": [
+        6.5,
+        5.3
+      ],
+      "max_cvss": 6.5,
+      "effects": [
+        "react-scripts"
+      ],
+      "fix_available": true,
+      "fix_info": {
+        "package": "react-scripts",
+        "version": "0.0.0",
+        "is_breaking": true
+      },
+      "owasp_category": "A06:2021 - Vulnerable and Outdated Components",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    },
+    {
+      "id": "SCA-B3DCC53F",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "client",
+      "variant": "vulnerable",
+      "package": "axios",
+      "severity": "high",
+      "risk_level": "high",
+      "is_direct": true,
+      "affected_range": "<=0.30.1",
+      "advisories": [
+        {
+          "id": 1097679,
+          "title": "Axios Cross-Site Request Forgery Vulnerability",
+          "url": "https://github.com/advisories/GHSA-wf5p-g6vw-rhxx",
+          "cwe": [
+            "CWE-352"
+          ],
+          "cvss": {
+            "score": 6.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N"
+          }
+        },
+        {
+          "id": 1102326,
+          "title": "axios Inefficient Regular Expression Complexity vulnerability",
+          "url": "https://github.com/advisories/GHSA-cph5-m8f7-6c5x",
+          "cwe": [
+            "CWE-400",
+            "CWE-1333"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          }
+        },
+        {
+          "id": 1103617,
+          "title": "axios Requests Vulnerable To Possible SSRF and Credential Leakage via Absolute URL",
+          "url": "https://github.com/advisories/GHSA-jr5f-v2jv-69x6",
+          "cwe": [
+            "CWE-918"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          }
+        },
+        {
+          "id": 1108262,
+          "title": "Axios is vulnerable to DoS attack through lack of data size check",
+          "url": "https://github.com/advisories/GHSA-4hjh-wcwx-xvwj",
+          "cwe": [
+            "CWE-770"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          }
+        }
+      ],
+      "cwe": [
+        "CWE-352",
+        "CWE-1333",
+        "CWE-918",
+        "CWE-400",
+        "CWE-770"
+      ],
+      "cvss_scores": [
+        6.5,
+        7.5,
+        7.5
+      ],
+      "max_cvss": 7.5,
+      "effects": [],
+      "fix_available": true,
+      "fix_info": {
+        "package": "axios",
+        "version": "0.21.4",
+        "is_breaking": false
+      },
+      "owasp_category": "A01:2021 - Broken Access Control (CSRF)",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    },
+    {
+      "id": "SCA-6B184F08",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "client",
+      "variant": "vulnerable",
+      "package": "lodash",
+      "severity": "high",
+      "risk_level": "high",
+      "is_direct": true,
+      "affected_range": "<=4.17.20",
+      "advisories": [
+        {
+          "id": 1106913,
+          "title": "Command Injection in lodash",
+          "url": "https://github.com/advisories/GHSA-35jh-r3h4-6jhm",
+          "cwe": [
+            "CWE-77",
+            "CWE-94"
+          ],
+          "cvss": {
+            "score": 7.2,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+          }
+        },
+        {
+          "id": 1106920,
+          "title": "Prototype Pollution in lodash",
+          "url": "https://github.com/advisories/GHSA-p6mc-m468-83gw",
+          "cwe": [
+            "CWE-770",
+            "CWE-1321"
+          ],
+          "cvss": {
+            "score": 7.4,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:H"
+          }
+        },
+        {
+          "id": 1108258,
+          "title": "Regular Expression Denial of Service (ReDoS) in lodash",
+          "url": "https://github.com/advisories/GHSA-29mw-wpgm-hmr9",
+          "cwe": [
+            "CWE-400",
+            "CWE-1333"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+          }
+        }
+      ],
+      "cwe": [
+        "CWE-1333",
+        "CWE-94",
+        "CWE-77",
+        "CWE-400",
+        "CWE-770",
+        "CWE-1321"
+      ],
+      "cvss_scores": [
+        7.2,
+        7.4,
+        5.3
+      ],
+      "max_cvss": 7.4,
+      "effects": [],
+      "fix_available": true,
+      "fix_info": {
+        "package": "lodash",
+        "version": "4.17.21",
+        "is_breaking": false
+      },
+      "owasp_category": "A03:2021 - Injection",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    },
+    {
+      "id": "SCA-59B2950A",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "client",
+      "variant": "vulnerable",
+      "package": "moment",
+      "severity": "high",
+      "risk_level": "high",
+      "is_direct": true,
+      "affected_range": "<=2.29.3",
+      "advisories": [
+        {
+          "id": 1095072,
+          "title": "Moment.js vulnerable to Inefficient Regular Expression Complexity",
+          "url": "https://github.com/advisories/GHSA-wc69-rhjr-hc9g",
+          "cwe": [
+            "CWE-400",
+            "CWE-1333"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          }
+        },
+        {
+          "id": 1095083,
+          "title": "Path Traversal: 'dir/../../filename' in moment.locale",
+          "url": "https://github.com/advisories/GHSA-8hfj-j24r-96c4",
+          "cwe": [
+            "CWE-22",
+            "CWE-27"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+          }
+        }
+      ],
+      "cwe": [
+        "CWE-1333",
+        "CWE-22",
+        "CWE-27",
+        "CWE-400"
+      ],
+      "cvss_scores": [
+        7.5,
+        7.5
+      ],
+      "max_cvss": 7.5,
+      "effects": [],
+      "fix_available": true,
+      "fix_info": {
+        "package": "moment",
+        "version": "2.30.1",
+        "is_breaking": false
+      },
+      "owasp_category": "A06:2021 - Vulnerable Components",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    },
+    {
+      "id": "SCA-3D5A97CB",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "api",
+      "variant": "production",
+      "package": "nodemailer",
+      "severity": "medium",
+      "risk_level": "medium",
+      "is_direct": true,
+      "affected_range": "<7.0.7",
+      "advisories": [
+        {
+          "id": 1108571,
+          "title": "Nodemailer: Email to an unintended domain can occur due to Interpretation Conflict",
+          "url": "https://github.com/advisories/GHSA-mm7p-fcc7-pg87",
+          "cwe": [
+            "CWE-20",
+            "CWE-436"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          }
+        }
+      ],
+      "cwe": [
+        "CWE-20",
+        "CWE-436"
+      ],
+      "cvss_scores": [],
+      "max_cvss": 0,
+      "effects": [],
+      "fix_available": true,
+      "fix_info": null,
+      "owasp_category": "A03:2021 - Injection",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    },
+    {
+      "id": "SCA-C03A2646",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "api",
+      "variant": "vulnerable",
+      "package": "body-parser",
+      "severity": "high",
+      "risk_level": "high",
+      "is_direct": false,
+      "affected_range": "<=1.20.2",
+      "advisories": [
+        {
+          "id": 1099520,
+          "title": "body-parser vulnerable to denial of service when url encoding is enabled",
+          "url": "https://github.com/advisories/GHSA-qwcr-r2fm-qrc7",
+          "cwe": [
+            "CWE-405"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          }
+        }
+      ],
+      "cwe": [
+        "CWE-405"
+      ],
+      "cvss_scores": [
+        7.5
+      ],
+      "max_cvss": 7.5,
+      "effects": [
+        "express"
+      ],
+      "fix_available": true,
+      "fix_info": {
+        "package": "express",
+        "version": "4.21.2",
+        "is_breaking": false
+      },
+      "owasp_category": "A04:2021 - Insecure Design",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    },
+    {
+      "id": "SCA-E32F3EEF",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "api",
+      "variant": "vulnerable",
+      "package": "cookie",
+      "severity": "low",
+      "risk_level": "low",
+      "is_direct": false,
+      "affected_range": "<0.7.0",
+      "advisories": [
+        {
+          "id": 1103907,
+          "title": "cookie accepts cookie name, path, and domain with out of bounds characters",
+          "url": "https://github.com/advisories/GHSA-pxg6-pf52-xh8x",
+          "cwe": [
+            "CWE-74"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          }
+        }
+      ],
+      "cwe": [
+        "CWE-74"
+      ],
+      "cvss_scores": [],
+      "max_cvss": 0,
+      "effects": [
+        "express"
+      ],
+      "fix_available": true,
+      "fix_info": {
+        "package": "express",
+        "version": "4.21.2",
+        "is_breaking": false
+      },
+      "owasp_category": "A03:2021 - Injection",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    },
+    {
+      "id": "SCA-BD09B177",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "api",
+      "variant": "vulnerable",
+      "package": "express",
+      "severity": "high",
+      "risk_level": "high",
+      "is_direct": true,
+      "affected_range": "<=4.21.0 || 5.0.0-alpha.1 - 5.0.0",
+      "advisories": [
+        {
+          "id": 1096820,
+          "title": "Express.js Open Redirect in malformed URLs",
+          "url": "https://github.com/advisories/GHSA-rv95-896h-c2vc",
+          "cwe": [
+            "CWE-601",
+            "CWE-1286"
+          ],
+          "cvss": {
+            "score": 6.1,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+          }
+        },
+        {
+          "id": 1100530,
+          "title": "express vulnerable to XSS via response.redirect()",
+          "url": "https://github.com/advisories/GHSA-qw6h-vgh9-j6wx",
+          "cwe": [
+            "CWE-79"
+          ],
+          "cvss": {
+            "score": 5,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:L"
+          }
+        }
+      ],
+      "cwe": [
+        "CWE-1286",
+        "CWE-79",
+        "CWE-601"
+      ],
+      "cvss_scores": [
+        6.1,
+        5
+      ],
+      "max_cvss": 6.1,
+      "effects": [],
+      "fix_available": true,
+      "fix_info": {
+        "package": "express",
+        "version": "4.21.2",
+        "is_breaking": false
+      },
+      "owasp_category": "A01:2021 - Broken Access Control",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    },
+    {
+      "id": "SCA-AE47E032",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "api",
+      "variant": "vulnerable",
+      "package": "jsonwebtoken",
+      "severity": "high",
+      "risk_level": "high",
+      "is_direct": true,
+      "affected_range": "<=8.5.1",
+      "advisories": [
+        {
+          "id": 1097690,
+          "title": "jsonwebtoken unrestricted key type could lead to legacy keys usage ",
+          "url": "https://github.com/advisories/GHSA-8cf7-32gw-wr33",
+          "cwe": [
+            "CWE-327"
+          ],
+          "cvss": {
+            "score": 8.1,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N"
+          }
+        },
+        {
+          "id": 1097694,
+          "title": "jsonwebtoken's insecure implementation of key retrieval function could lead to Forgeable Public/Private Tokens from RSA to HMAC",
+          "url": "https://github.com/advisories/GHSA-hjrf-2m68-5959",
+          "cwe": [
+            "CWE-287",
+            "CWE-1259"
+          ],
+          "cvss": {
+            "score": 5,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:L"
+          }
+        },
+        {
+          "id": 1102458,
+          "title": "jsonwebtoken vulnerable to signature validation bypass due to insecure default algorithm in jwt.verify()",
+          "url": "https://github.com/advisories/GHSA-qwph-4952-7xr6",
+          "cwe": [
+            "CWE-287",
+            "CWE-327",
+            "CWE-347"
+          ],
+          "cvss": {
+            "score": 6.4,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:H/A:L"
+          }
+        }
+      ],
+      "cwe": [
+        "CWE-347",
+        "CWE-1259",
+        "CWE-327",
+        "CWE-287"
+      ],
+      "cvss_scores": [
+        8.1,
+        5,
+        6.4
+      ],
+      "max_cvss": 8.1,
+      "effects": [],
+      "fix_available": true,
+      "fix_info": {
+        "package": "jsonwebtoken",
+        "version": "9.0.2",
+        "is_breaking": true
+      },
+      "owasp_category": "A02:2021 - Cryptographic Failures",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    },
+    {
+      "id": "SCA-0D7FD41F",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "api",
+      "variant": "vulnerable",
+      "package": "lodash",
+      "severity": "high",
+      "risk_level": "high",
+      "is_direct": true,
+      "affected_range": "<=4.17.20",
+      "advisories": [
+        {
+          "id": 1106913,
+          "title": "Command Injection in lodash",
+          "url": "https://github.com/advisories/GHSA-35jh-r3h4-6jhm",
+          "cwe": [
+            "CWE-77",
+            "CWE-94"
+          ],
+          "cvss": {
+            "score": 7.2,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+          }
+        },
+        {
+          "id": 1106920,
+          "title": "Prototype Pollution in lodash",
+          "url": "https://github.com/advisories/GHSA-p6mc-m468-83gw",
+          "cwe": [
+            "CWE-770",
+            "CWE-1321"
+          ],
+          "cvss": {
+            "score": 7.4,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:H"
+          }
+        },
+        {
+          "id": 1108258,
+          "title": "Regular Expression Denial of Service (ReDoS) in lodash",
+          "url": "https://github.com/advisories/GHSA-29mw-wpgm-hmr9",
+          "cwe": [
+            "CWE-400",
+            "CWE-1333"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+          }
+        }
+      ],
+      "cwe": [
+        "CWE-1333",
+        "CWE-94",
+        "CWE-77",
+        "CWE-400",
+        "CWE-770",
+        "CWE-1321"
+      ],
+      "cvss_scores": [
+        7.2,
+        7.4,
+        5.3
+      ],
+      "max_cvss": 7.4,
+      "effects": [],
+      "fix_available": true,
+      "fix_info": {
+        "package": "lodash",
+        "version": "4.17.21",
+        "is_breaking": false
+      },
+      "owasp_category": "A03:2021 - Injection",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    },
+    {
+      "id": "SCA-A5A7FD60",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "api",
+      "variant": "vulnerable",
+      "package": "path-to-regexp",
+      "severity": "high",
+      "risk_level": "high",
+      "is_direct": false,
+      "affected_range": "<=0.1.11",
+      "advisories": [
+        {
+          "id": 1101850,
+          "title": "path-to-regexp outputs backtracking regular expressions",
+          "url": "https://github.com/advisories/GHSA-9wv6-86v2-598j",
+          "cwe": [
+            "CWE-1333"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          }
+        },
+        {
+          "id": 1105199,
+          "title": "path-to-regexp contains a ReDoS",
+          "url": "https://github.com/advisories/GHSA-rhx6-c78j-4q9w",
+          "cwe": [
+            "CWE-1333"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          }
+        }
+      ],
+      "cwe": [
+        "CWE-1333"
+      ],
+      "cvss_scores": [
+        7.5,
+        7.5
+      ],
+      "max_cvss": 7.5,
+      "effects": [
+        "express"
+      ],
+      "fix_available": true,
+      "fix_info": {
+        "package": "express",
+        "version": "4.21.2",
+        "is_breaking": false
+      },
+      "owasp_category": "A06:2021 - Vulnerable Components (ReDoS)",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    },
+    {
+      "id": "SCA-EF8259EC",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "api",
+      "variant": "vulnerable",
+      "package": "qs",
+      "severity": "high",
+      "risk_level": "high",
+      "is_direct": false,
+      "affected_range": "6.7.0 - 6.7.2",
+      "advisories": [
+        {
+          "id": 1104120,
+          "title": "qs vulnerable to Prototype Pollution",
+          "url": "https://github.com/advisories/GHSA-hrpp-h998-j3pp",
+          "cwe": [
+            "CWE-1321"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          }
+        }
+      ],
+      "cwe": [
+        "CWE-1321"
+      ],
+      "cvss_scores": [
+        7.5
+      ],
+      "max_cvss": 7.5,
+      "effects": [
+        "body-parser",
+        "express"
+      ],
+      "fix_available": true,
+      "fix_info": {
+        "package": "express",
+        "version": "4.21.2",
+        "is_breaking": false
+      },
+      "owasp_category": "A06:2021 - Vulnerable Components",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    },
+    {
+      "id": "SCA-D978674F",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "api",
+      "variant": "vulnerable",
+      "package": "send",
+      "severity": "low",
+      "risk_level": "low",
+      "is_direct": false,
+      "affected_range": "<0.19.0",
+      "advisories": [
+        {
+          "id": 1100526,
+          "title": "send vulnerable to template injection that can lead to XSS",
+          "url": "https://github.com/advisories/GHSA-m6fv-jmcg-4jfg",
+          "cwe": [
+            "CWE-79"
+          ],
+          "cvss": {
+            "score": 5,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:L"
+          }
+        }
+      ],
+      "cwe": [
+        "CWE-79"
+      ],
+      "cvss_scores": [
+        5
+      ],
+      "max_cvss": 5,
+      "effects": [
+        "express",
+        "serve-static"
+      ],
+      "fix_available": true,
+      "fix_info": {
+        "package": "express",
+        "version": "4.21.2",
+        "is_breaking": false
+      },
+      "owasp_category": "A03:2021 - Injection (XSS)",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    },
+    {
+      "id": "SCA-BF559F7B",
+      "source": "SCA",
+      "tool": "NPM Audit",
+      "component": "api",
+      "variant": "vulnerable",
+      "package": "serve-static",
+      "severity": "low",
+      "risk_level": "low",
+      "is_direct": false,
+      "affected_range": "<=1.16.0",
+      "advisories": [
+        {
+          "id": 1100528,
+          "title": "serve-static vulnerable to template injection that can lead to XSS",
+          "url": "https://github.com/advisories/GHSA-cm22-4g7w-348p",
+          "cwe": [
+            "CWE-79"
+          ],
+          "cvss": {
+            "score": 5,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:L"
+          }
+        }
+      ],
+      "cwe": [
+        "CWE-79"
+      ],
+      "cvss_scores": [
+        5
+      ],
+      "max_cvss": 5,
+      "effects": [],
+      "fix_available": true,
+      "fix_info": null,
+      "owasp_category": "A03:2021 - Injection (XSS)",
+      "nist_csf_function": "ID.RA - Risk Assessment"
+    }
+  ],
+  "statistics": {
+    "by_package": {
+      "@svgr/plugin-svgo": 1,
+      "@svgr/webpack": 1,
+      "axios": 2,
+      "css-select": 1,
+      "nth-check": 1,
+      "postcss": 1,
+      "react-scripts": 1,
+      "resolve-url-loader": 1,
+      "svgo": 1,
+      "webpack-dev-server": 1,
+      "lodash": 2,
+      "moment": 1,
+      "nodemailer": 1,
+      "body-parser": 1,
+      "cookie": 1,
+      "express": 1,
+      "jsonwebtoken": 1,
+      "path-to-regexp": 1,
+      "qs": 1,
+      "send": 1,
+      "serve-static": 1
+    },
+    "direct_vs_indirect": {
+      "direct": 9,
+      "indirect": 14
+    },
+    "fixable_count": 23
+  }
+}
