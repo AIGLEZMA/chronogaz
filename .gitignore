@@ -23,7 +23,6 @@ yarn-error.log
 node_modules/
 api/node_modules/
 client/node_modules/
-package-lock.json
 
 # Node.js specific (rapports, dumps)
 *.heapdump
