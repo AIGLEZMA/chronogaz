@@ -13,7 +13,7 @@ jobs:
   generate-policies:
     runs-on: ubuntu-latest
     name: Generate Security Policies (LLM)
-    
+    if: contains(github.event.head_commit.message, '[test]')
     steps:
       - name: Checkout code
         uses: actions/checkout@v4

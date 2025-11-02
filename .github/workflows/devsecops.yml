@@ -7,6 +7,14 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# This entire workflow will SKIP if the event is a 'push' 
+# to 'llm-integration' AND the commit message contains '[test]'
+if: |
+  !( \
+    github.event_name == 'push' && \
+    github.ref == 'refs/heads/llm-integration' && \
+    contains(github.event.head_commit.message, '[test]') \
+  )
 #Permissions pour le workflow  
 permissions:  
   contents: read  
